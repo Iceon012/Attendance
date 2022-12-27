@@ -1,0 +1,64 @@
+<body>
+    <br><br><br>
+    <form>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="text-center">
+                        <h1 class="text-center mt-5"
+                            style="text-transform: uppercase; font-weight:700 ; font-size: 35px; color: #245166;"><i
+                                class="fa fa-file-text fa-2x" aria-hidden="true"></i><br><br>School of Computing</h1>
+                        <button class="btn btn-outline-primary form-control">Today is: {{dateVal | date: 'M/dd/yyyy'}}
+                            {{dateVal | date: "HH:mm:ss"}}
+                        </button>
+                    </div>
+                    <hr>
+                    <form [formGroup]="log" (ngSubmit)="StudentLogs()">
+                        <div class="row">
+                            <div class="col-md">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="floatingInput"
+                                        placeholder="name@example.com" formControlName="studID"
+                                        *ngFor="let stud of students" value="{{stud.id_num}}" readonly>
+                                    <label for="floatingInput">Student ID</label>
+                                </div>
+                            </div>
+                            <div class="col-md">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="floatingPassword" placeholder="Name"
+                                        formControlName="yearcourse" *ngFor="let stud of students" value="{{stud.year_course}}"
+                                        readonly>
+                                    <label for="floatingPassword">Year and Course</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="floatingPassword" placeholder="Name"
+                                        formControlName="studName" *ngFor="let stud of students" value="{{stud.Name}}"
+                                        readonly>
+                                    <label for="floatingPassword">Year and Course</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    <hr>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-md">
+                                <button type="submit" class="btn btn-lg form-control"
+                                    style="background-color: #245166; color: white  ;">Present</button>
+                            </div>
+                            <div class="col-md">
+                                <button type="button" class="btn btn-lg form-control"
+                                    style="background-color: white; color: #245166 ;" routerLink="/log">Back</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>

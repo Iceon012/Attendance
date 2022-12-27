@@ -1,0 +1,62 @@
+<br><br><br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-1">
+        <button class="btn btn-outline-primary form-control" routerLink="/log">🠔</button>
+      </div>
+    <div class="col-md">
+      <input type="text" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Search for (ID No., Name, Course, Datelog).."
+        title="Type in a name" />
+    </div>
+    <div class="col-md-1">
+      <button class="btn btn-primary form-control" [useExistingCss]="true"
+        styleSheetFile="node_modules/bootstrap/dist/css/bootstrap.min.css" printSectionId="print-section"
+        ngxPrint>&#10064;</button>
+    </div>
+  </div>
+
+
+</div>
+<div class="container" id="print-section" style="background-image: url('assets/nlaclogo.jpg');">
+  <br>
+  <div class="row">
+    <div class="col-md-1 d-flex">
+      <img src="assets/nlaclogo.jpeg" width="100" height="100">
+    </div>
+    <div class="col-md d-inline-flex" style="padding-top: 1.5rem;">
+      <h4>Northern Luzon Adventist College | Artacho Sison, Pangasinan,2434 <br><b>WORSHIP ATTENDANCE as of | {{dateVal | date: 'M/dd/yyyy'}}
+        {{dateVal | date: "HH:mm:ss"}}
+| REPORT</b></h4>
+    </div>
+  </div>
+  <br>
+  <table class="table table-hover table-borderless table-responsive align-middle mb-3 bg-white rounded" id="myTable" style="overflow-x:auto;">
+    <thead class="text-white" style="text-transform: uppercase;">
+      <tr>
+        <th>Student ID</th>
+        <th>Name</th>
+        <th>Course</th>
+        <th class="text-center">Log Date | Log Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of studentLogs">
+        <td>{{u.id_num}}</td>
+        <td>{{u.logName}}</td>
+        <td>{{u.log_course}}</td>
+        <td class="text-center">{{u.log_date}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <!-- <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10">
+
+      </div>
+      <div class="col-md d-flex">
+        <p><u>Arvin S. Ayson</u></p>
+      </div>
+    </div>
+  </div> -->
+</div>

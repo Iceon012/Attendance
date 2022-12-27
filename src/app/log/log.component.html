@@ -1,0 +1,44 @@
+<body>
+    <br><br><br>
+    <form>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="text-center">
+                        <h1 class="text-center mt-5"
+                            style="text-transform: uppercase; font-weight:700 ; font-size: 35px; color: #245166;"><i
+                                class="fa fa-file-text fa-2x" aria-hidden="true"></i><br><br>School of Computing</h1>
+                        <div class="row">
+                            <div class="col-md"><h3><b>Today is: {{dateVal | date: 'M/dd/yyyy'}} | {{dateVal | date: "HH:mm:ss"}}</b></h3> 
+                            </div>
+                            <hr>
+                            <div class="col-md-2">
+                                <button class="btn btn-outline-primary form-control">
+                                    <i class="fa fa-print" aria-hidden="true" routerLink="/report"></i>
+                                </button>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-outline-primary form-control">
+                                    <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <hr>
+                    <form [formGroup]="logForm" (ngSubmit)="StudLogin()">
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" formControlName="studID" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">Type your ID Number..1...</label>
+                        </div>
+                        <hr>
+                        <div class="mb-3">
+                            <button class="btn btn-lg form-control"
+                                style="background-color: #245166; color: white  ;">Check</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
